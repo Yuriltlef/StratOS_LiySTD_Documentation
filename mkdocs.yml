@@ -48,9 +48,6 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
-extra_javascript:
-  - js/theme-loader.js
-
 nav:
   - 欢迎来到LiySTD: index.md
   - StratOS-LiySTD 介绍: 
