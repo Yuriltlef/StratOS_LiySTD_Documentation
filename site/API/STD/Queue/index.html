@@ -19,230 +19,10 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
-  <title>内联验证成功</title>
-  <style>
-  [data-md-color-scheme] {
-  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-.md-nav {
-  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-@media screen and (min-width: 76.25em){
-.md-nav--primary .md-nav__title {
-    box-shadow: none !important;
-    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-  }
-}
-
-.md-nav__title  {
-    box-shadow: none !important;
-    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-.md-typeset * {
-     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-/* 调整内容区域的最大宽度 */
-.md-grid {
-  max-width: 75rem !important;; 
-}
-
-/* 调整主要内容区域宽度 */
-.md-main__inner {
-  margin-top: 0.5rem !important;;
-}
-
-/* 调整文章内容区域宽度 */
-.md-content {
-  max-width: 100% !important;; /* 让内容区域使用全部可用空间 */
-}
-
-.md-typeset pre > code {
-  max-width: 100% !important;;
-}
-
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color: #111113 !important;;
-  --md-default-fg-color: #c8c8e4 !important;;
-  --md-code-bg-color:#161720 !important;;
-  --md-primary-fg-color: #131622 !important;;
-  --md-primary-fg-color--light: #131622 !important;;
-  --md-primary-fg-color--dark: #131622 !important;;
-  --md-typeset-a-color: #8b99d1 !important;;
-  --md-default-fg-color:#d5d5d5 !important;;
-}
-
-[data-md-color-scheme="default"] {
-  /* 修改导航栏背景色 */
-  --md-primary-fg-color: #1d59ff !important;; 
-  --md-default-fg-color: #000000 !important;;       /* 主色 */
-}
-
-[data-md-color-scheme="default"] .md-header {
-  box-shadow: none !important;
-  background-color: #ffffff !important;
-  color: #2e2e2e !important;
-  border-bottom: 1px solid #cdcdcd !important;
-  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-[data-md-color-scheme="slate"] .md-header {
-  box-shadow: none !important;
-  border-bottom: 1.5px solid #799af4 !important;
-  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
-
-[data-md-color-scheme="default"] .md-search__input {
-  background: #cfcfcfbd !important;
-
-}
-
-[data-md-color-scheme="default"] .md-search__input:hover {
-  background-color: #00000027 !important;  background: #00000079 !important;
-}
-
-:root {
-  --input-radius: 15px !important;;
-}
-
-input {
-    border: 0 !important;;
-    outline: none !important;;
-    border-radius: var(--input-radius) !important;
-}
-
-.md-search__form {
-  border-radius: var(--input-radius) !important;
-}
-
-[data-md-toggle=search]:checked~.md-header .md-search__input {
-        text-overflow: clip !important;;
-        border-radius: var(--input-radius) var(--input-radius) 0 0 !important;
-    }
-
-[data-md-toggle=search]:checked~.md-header .md-search__input:hover {
-        background: #ffffff05 !important;
-    }
-
-[data-md-toggle=search]:checked~.md-header .md-search__form {
-        text-overflow: clip;
-        border-radius: var(--input-radius) var(--input-radius) 0 0 !important;
-    }
-
-.md-search__output {
-  border-radius: 0 0 var(--input-radius) var(--input-radius) !important;
-}
-
-[data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
-  border-right: 1px solid rgb(76, 92, 123) !important; /* 明显的蓝色边框 */
-  z-index: 9999 !important;
-}
-
-.md-sidebar__scrollwrap {
-  border-right: 1px solid rgb(224, 224, 228) !important; /* 明显的蓝色边框 */
-  z-index: 9999 !important;
-}
-
-.md-sidebar__scrollwrap {
-  scrollbar-gutter: stable !important;;
-  scrollbar-width: none !important;;
-  scroll-behavior: smooth !important;;
-  scrollbar-color: #00000000 !important;
-  transition: scrollbar-color 0.1s !important;
-}
-
-.md-sidebar__scrollwrap:hover {
-  scrollbar-gutter: stable !important;;
-  scrollbar-width: thin !important;;
-  scroll-behavior: smooth !important;;
-  transition: scrollbar-color 0.5s !important;
-}
-
-@media screen and (min-width: 60em) {
-    .md-sidebar--secondary .md-sidebar__scrollwrap {
-      border-right: none !important;
-    }
-}
-
-.md-nav__item {
-  margin-bottom: 0.1rem !important;;
-}
-
-/* 导航栏选中状态修复方案 */
-.md-nav__link {
-  padding: 0.3rem  !important; /* 增加内边距，使方框更大 */
-  border-radius: 4px !important; /* 更大的圆角 */
-  transition: all 0.1s ease !important;;
-  min-height: 0.4rem !important;; /* 确保最小高度 */
-  display: flex !important;;
-  align-items: center !important;;
-  position: relative !important;;
-}
-
-/* 选中状态 - 更大的方框和更明显的样式 */
-.md-nav__link--active {
-  background-color: rgba(5, 23, 155, 0.204) !important;
-  color: var(--md-primary-fg-color) !important;
-  font-weight: 700 !important; /* 更粗的字体 */
-  transform: translateY(-1px) !important; /* 轻微上浮效果 */
-  padding: 0.3rem 1rem !important; /* 选中状态更大的内边距 */
-}
-
-/* 深色模式下的选中状态 */
-[data-md-color-scheme="slate"] .md-nav__link--active {
-  background-color: rgba(109, 189, 255, 0.221) !important;
-  color: #ffffff !important; /* 白色文字确保可见性 */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important; /* 文字阴影增强可读性 */
-}
-
-/* 悬停状态 */
-.md-nav__link:hover {
-  background-color: rgba(0, 0, 0, 0.07) !important;
-}
-
-[data-md-color-scheme="slate"] .md-nav__link:hover {
-  background-color: rgba(255, 255, 255, 0.07) !important;
-  color: #ffffff !important; /* 深色模式下悬停时也使用白色文字 */
-}
-
-/* 选中状态的悬停效果 */
-.md-nav__link--active:hover {
-  background-color: rgba(0, 0, 0, 0.18) !important;
-  transform: translateY(-1px) scale(1.02) !important; /* 悬停时轻微放大 */
-}
-
-[data-md-color-scheme="slate"] .md-nav__link--active:hover {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  color: #ffffff !important;
-}
-
-.md-nav__link--passed {
-    background-color: none !important;
-}
-
-[data-md-color-scheme="slate"] .md-nav__link--passed {
-    background-color:  none !important;
-}
-
-.md-nav__link--passed .md-nav__link {
-    background-color: none !important;
-}
-
-.md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary {
-    border-left: none !important;
-    border-left: 2px solid #0081d6aa !important;
-    transition: border-left 0.1s !important;;
-}
-
-.md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary:hover {
-    border-left: none !important;
-    border-left: 7px solid #0081d6aa !important;
-    transition: border-left 0.1s !important;
-}</style>
-
+      
+        <title>Queue - StratOS-LiySTD 文档</title>
+      
+    
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
@@ -265,6 +45,8 @@ input {
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -2065,6 +1847,10 @@ input {
     
     
       <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../../js/theme-loader.js"></script>
+      
+        <script src="../../../js/sw.js"></script>
       
     
   </body>

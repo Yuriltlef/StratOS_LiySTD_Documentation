@@ -15,9 +15,9 @@ theme:
     - toc.integrate
     - content.tabs.link
 
-  custom_dir: overrides
-  static_templates:
-    - main.html
+  # custom_dir: overrides
+  # static_templates:
+  #   - main.html
 
   palette:
 
@@ -50,12 +50,12 @@ markdown_extensions:
   - pymdownx.blocks.tab:
       alternate_style: true
 
-# extra_css:
-#   - stylesheets/extra.css
+extra_css:
+  - stylesheets/extra.css
 
-# extra_javascript:
-#   - js/theme-loader.js
-#   - js/sw.js
+extra_javascript:
+  - js/theme-loader.js
+  - js/sw.js
 
 nav:
   - 欢迎来到LiySTD: index.md
