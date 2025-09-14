@@ -1,31 +1,31 @@
-const CACHE_NAME = 'theme-cache-v1';
-const urlsToCache = [
-  '/',
-  '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
-  '/StratOS_LiySTD_Documentation/js/theme-loader.js'
-];
+// const CACHE_NAME = 'theme-cache-v1';
+// const urlsToCache = [
+//   '/',
+//   '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
+//   '/StratOS_LiySTD_Documentation/js/theme-loader.js'
+// ];
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
+// self.addEventListener('install', function(event) {
+//   event.waitUntil(
+//     caches.open(CACHE_NAME)
+//       .then(function(cache) {
+//         return cache.addAll(urlsToCache);
+//       })
+//   );
+// });
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
-});
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(function(response) {
+//         if (response) {
+//           return response;
+//         }
+//         return fetch(event.request);
+//       }
+//     )
+//   );
+// });
 // const CACHE_NAME = 'theme-cache-v2'; // 更新版本号以强制更新缓存
 // const urlsToCache = [
 //   '/',
@@ -144,3 +144,134 @@ self.addEventListener('fetch', function(event) {
 //       })
 //   );
 // });
+
+const CACHE_NAME = 'theme-cache-v3';
+const urlsToCache = [
+  '/',
+  '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
+  '/StratOS_LiySTD_Documentation/js/theme-loader.js'
+];
+
+// 安装阶段
+self.addEventListener('install', function(event) {
+  self.skipWaiting(); // 强制立即激活
+  
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+      .then(function() {
+        console.log('所有资源已成功缓存');
+      })
+      .catch(function(error) {
+        console.log('缓存失败:', error);
+      })
+  );
+});
+
+// 激活阶段
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheName !== CACHE_NAME) {
+            console.log('删除旧缓存:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(function() {
+      // 立即接管所有客户端
+      return self.clients.claim();
+    })
+  );
+});
+
+// fetch事件处理
+self.addEventListener('fetch', function(event) {
+  const url = new URL(event.request.url);
+  
+  // 跳过非GET请求
+  if (event.request.method !== 'GET') return;
+  
+  // 对于sw.js本身，始终从网络获取，但不要缓存
+  if (url.pathname.endsWith('sw.js')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+  
+  // 对于CSS和JS资源，使用缓存优先策略
+  if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          if (response) {
+            // 返回缓存的同时更新缓存
+            fetchAndCache(event.request);
+            return response;
+          }
+          // 没有缓存，从网络获取并缓存
+          return fetchAndCache(event.request);
+        })
+    );
+    return;
+  }
+  
+  // 对于HTML页面，使用网络优先策略
+  if (event.request.headers.get('Accept').includes('text/html')) {
+    event.respondWith(
+      fetch(event.request)
+        .then(function(response) {
+          // 克隆响应以进行缓存
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME)
+            .then(function(cache) {
+              cache.put(event.request, responseClone);
+            });
+          return response;
+        })
+        .catch(function() {
+          return caches.match(event.request)
+            .then(function(response) {
+              return response || caches.match('/offline.html');
+            });
+        })
+    );
+    return;
+  }
+  
+  // 对于其他资源，使用缓存优先策略
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        return response || fetch(event.request);
+      })
+  );
+});
+
+// 辅助函数：获取并缓存请求
+function fetchAndCache(request) {
+  return fetch(request)
+    .then(function(response) {
+      // 检查响应是否有效
+      if (!response || response.status !== 200) {
+        return response;
+      }
+      
+      // 克隆响应以进行缓存
+      const responseToCache = response.clone();
+      
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          cache.put(request, responseToCache);
+        });
+      
+      return response;
+    })
+    .catch(function(error) {
+      console.log('获取资源失败:', error);
+      throw error;
+    });
+  }
