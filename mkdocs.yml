@@ -51,6 +51,9 @@ extra_css:
 extra_javascript:
   - js/theme-loader.js
 
+extra_files:
+  - sw.js
+
 nav:
   - 欢迎来到LiySTD: index.md
   - StratOS-LiySTD 介绍: 
