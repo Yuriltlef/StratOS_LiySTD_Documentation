@@ -1,24 +1,48 @@
-[data-md-color-scheme] {
+/* [data-md-color-scheme] {
+  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+} */
+
+[data-md-color-scheme="slate"] {
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 }
 
-.md-nav {
+[data-md-color-scheme="defualt"] {
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 }
+
+/* .md-nav {
+  transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+} */
 
 @media screen and (min-width: 76.25em){
-.md-nav--primary .md-nav__title {
+[data-md-color-scheme="defualt"] .md-nav--primary .md-nav__title {
     box-shadow: none !important;
     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
   }
 }
 
-.md-nav__title  {
+@media screen and (min-width: 76.25em){
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+    box-shadow: none !important;
+    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+  }
+}
+
+[data-md-color-scheme="defualt"] .md-nav__title  {
     box-shadow: none !important;
     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 }
 
-.md-typeset * {
+[data-md-color-scheme="slate"] .md-nav__title  {
+    box-shadow: none !important;
+    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+}
+
+[data-md-color-scheme="defualt"] .md-typeset * {
+     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset * {
      transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 }
 
