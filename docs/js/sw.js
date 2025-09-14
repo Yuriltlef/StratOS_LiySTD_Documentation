@@ -28,7 +28,6 @@
 // });
 const CACHE_NAME = 'theme-cache-v2'; // 更新版本号以强制更新缓存
 const urlsToCache = [
-  '/',
   '/stylesheets/extra.css',
   '/js/theme-loader.js'
 ];

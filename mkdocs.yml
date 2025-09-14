@@ -50,9 +50,7 @@ extra_css:
 
 extra_javascript:
   - js/theme-loader.js
-
-extra_files:
-  - sw.js
+  - js/sw.js
 
 nav:
   - 欢迎来到LiySTD: index.md
