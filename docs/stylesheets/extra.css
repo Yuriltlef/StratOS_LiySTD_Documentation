@@ -1,3 +1,20 @@
+/* 优先使用用户系统偏好设置 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-default-bg-color: #121212;
+    --md-default-fg-color: #ffffff;
+    /* 添加其他深色模式变量 */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-default-bg-color: #ffffff;
+    --md-default-fg-color: #000000;
+    /* 添加其他浅色模式变量 */
+  }
+}
+
 [data-md-color-scheme] {
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.3s ease;
 }
@@ -6,12 +23,12 @@
   transition: background-color 0.25s, color 0.1s;
 }
 
-@media screen and (min-width: 76.25em){
+/* @media screen and (min-width: 76.25em){
 .md-nav--primary .md-nav__title {
     box-shadow: none !important;
     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
   }
-}
+} */
 
 .md-nav__title  {
     box-shadow: none !important;
@@ -72,6 +89,7 @@
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 }
 
+/* ====================== input =========================*/
 [data-md-color-scheme="default"] .md-search__input {
   background: #cfcfcfbd !important;
   transition: background 0.1s !important;
@@ -114,7 +132,9 @@ input {
 .md-search__output {
   border-radius: 0 0 var(--input-radius) var(--input-radius) !important;
 }
+/* ====================== input =========================*/
 
+/* ====================== sidebar =========================*/
 [data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
   border-right: 1px solid rgb(76, 92, 123) !important; /* 明显的蓝色边框 */
   z-index: 9999 !important;
