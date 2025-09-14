@@ -74,13 +74,11 @@
 
 [data-md-color-scheme="default"] .md-search__input {
   background: #cfcfcfbd !important;
-  transition: background 0.1s !important;
+
 }
 
 [data-md-color-scheme="default"] .md-search__input:hover {
-  background-color: #00000027 !important;
-  background: #00000079 !important;
-  transition: background 0.1s !important;
+  background-color: #00000027 !important;  background: #00000079 !important;
 }
 
 :root {
@@ -213,11 +211,11 @@ input {
 .md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary {
     border-left: none !important;
     border-left: 2px solid #0081d6aa !important;
-    transition: border-left 0.1s;
+    transition: border-left 0.1s !important;;
 }
 
 .md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary:hover {
     border-left: none !important;
     border-left: 7px solid #0081d6aa !important;
-    transition: border-left 0.1s;
+    transition: border-left 0.1s !important;
 }
