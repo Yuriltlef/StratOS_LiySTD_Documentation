@@ -1,34 +1,16 @@
-name: Deploy to GitHub Pages
-
+name: ci
 on:
   push:
     branches:
-      - main  
-
-permissions:
-  contents: write
-
+      - master
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
-          
-      - name: Install dependencies
-        run: |
-          pip install mkdocs
-          pip install mkdocs-material
-          
-      - name: Build the site
-        run: mkdocs build --site-dir site
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          python-version: 3.x
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
