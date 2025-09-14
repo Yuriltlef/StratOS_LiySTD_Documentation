@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block htmltitle %}
+<script>
+// 深色模式初始化脚本
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  document.documentElement.dataset.mdColorScheme = savedTheme || 'default';
+});
+</script>
   <title>内联验证成功</title>
   <style>
   [data-md-color-scheme] {

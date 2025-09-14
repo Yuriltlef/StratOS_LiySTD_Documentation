@@ -19,6 +19,13 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
+<script>
+// 深色模式初始化脚本
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  document.documentElement.dataset.mdColorScheme = savedTheme || 'default';
+});
+</script>
   <title>内联验证成功</title>
   <style>
   [data-md-color-scheme] {
