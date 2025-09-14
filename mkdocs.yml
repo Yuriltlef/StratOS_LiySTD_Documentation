@@ -15,9 +15,9 @@ theme:
     - toc.integrate
     - content.tabs.link
 
-  # custom_dir: overrides
-  # static_templates:
-  #   - main.html
+  custom_dir: overrides
+  static_templates:
+    - main.html
 
   palette:
 
