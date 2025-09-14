@@ -28,8 +28,8 @@
 // });
 const CACHE_NAME = 'theme-cache-v2'; // 更新版本号以强制更新缓存
 const urlsToCache = [
-  '/stylesheets/extra.css',
-  '/js/theme-loader.js'
+  '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
+  '/StratOS_LiySTD_Documentation/js/theme-loader.js'
 ];
 
 // 安装阶段：缓存资源
