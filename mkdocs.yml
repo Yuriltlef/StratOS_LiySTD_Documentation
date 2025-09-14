@@ -54,21 +54,21 @@ nav:
     - LiySTD 是做什么的: what.md
     - 项目结构: structure.md
   - 快速上手: 
-    - 对于桌面环境: start\forDesktop.md
+    - 对于桌面环境: start/forDesktop.md
     - 对于嵌入式环境: build.md
   - API参考：快速浏览: 
     - STD数据类型: 
-      - LinearListVitual: API\STD\LinearListVitual.md
+      - LinearListVitual: API/STD/LinearListVitual.md
       - ArrayListVirtual: API/STD/ArrayListVirtual.md
       - SinglyListVirtual: API/STD/SinglyListVirtual.md
       - SinglyCircularListVirtual: API/STD/SinglyCircularListVirtual.md
       - DoublyCircularListVirtual: API/STD/DoublyCircularListVirtual.md
 
-      - LinearList: API\STD\LinearList.md
+      - LinearList: API/STD/LinearList.md
       - Array: API/STD/Array.md
-      - SinglyList: API\STD\SinglyList.md
-      - SinglyCircularList: API\STD\SinglyCircularList.md
-      - DoublyCircularList: API\STD\DoublyCircularList.md
+      - SinglyList: API/STD/SinglyList.md
+      - SinglyCircularList: API/STD/SinglyCircularList.md
+      - DoublyCircularList: API/STD/DoublyCircularList.md
 
 
       - StackVirtual: API/STD/StackVirtual.md
@@ -79,52 +79,52 @@ nav:
       - Stack: API/STD/Stack.md
       - StackLink: API/STD/StackLink.md
 
-      - DictVirtual: API\STD\DictVirtual.md
-      - DictArrayVirtual: API\STD\DictArrayVirtual.md
-      - DictLinkVirtual: API\STD\DictLinkVirtual.md
-      - SkipListVirtual: API\STD\SkipListVirtual.md
-      - DictHashVirtual: API\STD\DictHashVirtual.md
+      - DictVirtual: API/STD/DictVirtual.md
+      - DictArrayVirtual: API/STD/DictArrayVirtual.md
+      - DictLinkVirtual: API/STD/DictLinkVirtual.md
+      - SkipListVirtual: API/STD/SkipListVirtual.md
+      - DictHashVirtual: API/STD/DictHashVirtual.md
 
-      - Dict: API\STD\Dict.md
-      - DictArray: API\STD\DictArray.md
-      - DictLink: API\STD\DictLink.md
-      - SkipList: API\STD\SkipList.md
-      - DictHash: API\STD\DictHash.md
+      - Dict: API/STD/Dict.md
+      - DictArray: API/STD/DictArray.md
+      - DictLink: API/STD/DictLink.md
+      - SkipList: API/STD/SkipList.md
+      - DictHash: API/STD/DictHash.md
 
-      - TreeVirtual: API\STD\TreeVirtual.md
+      - TreeVirtual: API/STD/TreeVirtual.md
 
-      - BinTreeVirtual: API\STD\BinTreeVirtual.md
-      - BinTreeArray: API\STD\BinTreeArray.md
+      - BinTreeVirtual: API/STD/BinTreeVirtual.md
+      - BinTreeArray: API/STD/BinTreeArray.md
 
-      - Tree: API\STD\Tree.md
-      - BinTree: API\STD\BinTree.md
-      - BSTree: API\STD\BSTree.md
-      - RBTree: API\STD\RBTree.md
-      - BPTree: API\STD\BPTree.md
-      - BTree: API\STD\BTree.md
+      - Tree: API/STD/Tree.md
+      - BinTree: API/STD/BinTree.md
+      - BSTree: API/STD/BSTree.md
+      - RBTree: API/STD/RBTree.md
+      - BPTree: API/STD/BPTree.md
+      - BTree: API/STD/BTree.md
 
-      - WinnerTreeBinVirtual: API\STD\WinnerTreeBinVirtual.md
-      - WinnerTreeVirtual: API\STD\WinnerTreeVirtual.md
+      - WinnerTreeBinVirtual: API/STD/WinnerTreeBinVirtual.md
+      - WinnerTreeVirtual: API/STD/WinnerTreeVirtual.md
 
-      - WinnerTree: API\STD\WinnerTree.md
-      - WinnerTreeBin: API\STD\WinnerTreeBin.md
+      - WinnerTree: API/STD/WinnerTree.md
+      - WinnerTreeBin: API/STD/WinnerTreeBin.md
 
-      - MaxHeapVirtual: API\STD\MaxHeapVirtual.md
-      - MinHeapVirtual: API\STD\MinHeapVirtual.md
+      - MaxHeapVirtual: API/STD/MaxHeapVirtual.md
+      - MinHeapVirtual: API/STD/MinHeapVirtual.md
 
-      - MaxHeap: API\STD\MaxHeap.md
-      - MinHeap: API\STD\MinHeap.md
+      - MaxHeap: API/STD/MaxHeap.md
+      - MinHeap: API/STD/MinHeap.md
 
-      - PriorityQueueVirtual: API\STD\PriorityQueueVirtual.md
-      - PriorityQueue: API\STD\PriorityQueue.md
+      - PriorityQueueVirtual: API/STD/PriorityQueueVirtual.md
+      - PriorityQueue: API/STD/PriorityQueue.md
 
-      - GraphVirtual: API\STD\GraphVirtual.md
-      - ADGraphVirtual: API\STD\ADGraphVirtual.md
-      - ADWGraphVirtual: API\STD\ADWGraphVirtual.md
+      - GraphVirtual: API/STD/GraphVirtual.md
+      - ADGraphVirtual: API/STD/ADGraphVirtual.md
+      - ADWGraphVirtual: API/STD/ADWGraphVirtual.md
 
-      - Graph: API\STD\Graph.md
-      - LKGraph: API\STD\LKGraph.md
-      - LKWGraph: API\STD\LKWGraph.md
+      - Graph: API/STD/Graph.md
+      - LKGraph: API/STD/LKGraph.md
+      - LKWGraph: API/STD/LKWGraph.md
 
   - 完整参考:
     - 参考: fullReference/hello.md
