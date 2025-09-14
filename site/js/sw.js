@@ -145,133 +145,215 @@
 //   );
 // });
 
-const CACHE_NAME = 'theme-cache-v3';
-const urlsToCache = [
-  '/',
-  '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
-  '/StratOS_LiySTD_Documentation/js/theme-loader.js'
-];
+// const CACHE_NAME = 'theme-cache-v3';
+// const urlsToCache = [
+//   '/',
+//   '/StratOS_LiySTD_Documentation/stylesheets/extra.css',
+//   '/StratOS_LiySTD_Documentation/js/theme-loader.js'
+// ];
 
-// 安装阶段
-self.addEventListener('install', function(event) {
-  self.skipWaiting(); // 强制立即激活
+// // 安装阶段
+// self.addEventListener('install', function(event) {
+//   self.skipWaiting(); // 强制立即激活
   
+//   event.waitUntil(
+//     caches.open(CACHE_NAME)
+//       .then(function(cache) {
+//         return cache.addAll(urlsToCache);
+//       })
+//       .then(function() {
+//         console.log('所有资源已成功缓存');
+//       })
+//       .catch(function(error) {
+//         console.log('缓存失败:', error);
+//       })
+//   );
+// });
+
+// // 激活阶段
+// self.addEventListener('activate', function(event) {
+//   event.waitUntil(
+//     caches.keys().then(function(cacheNames) {
+//       return Promise.all(
+//         cacheNames.map(function(cacheName) {
+//           if (cacheName !== CACHE_NAME) {
+//             console.log('删除旧缓存:', cacheName);
+//             return caches.delete(cacheName);
+//           }
+//         })
+//       );
+//     }).then(function() {
+//       // 立即接管所有客户端
+//       return self.clients.claim();
+//     })
+//   );
+// });
+
+// // fetch事件处理
+// self.addEventListener('fetch', function(event) {
+//   const url = new URL(event.request.url);
+  
+//   // 跳过非GET请求
+//   if (event.request.method !== 'GET') return;
+  
+//   // 对于sw.js本身，始终从网络获取，但不要缓存
+//   if (url.pathname.endsWith('sw.js')) {
+//     event.respondWith(fetch(event.request));
+//     return;
+//   }
+  
+//   // 对于CSS和JS资源，使用缓存优先策略
+//   if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+//     event.respondWith(
+//       caches.match(event.request)
+//         .then(function(response) {
+//           if (response) {
+//             // 返回缓存的同时更新缓存
+//             fetchAndCache(event.request);
+//             return response;
+//           }
+//           // 没有缓存，从网络获取并缓存
+//           return fetchAndCache(event.request);
+//         })
+//     );
+//     return;
+//   }
+  
+//   // 对于HTML页面，使用网络优先策略
+//   if (event.request.headers.get('Accept').includes('text/html')) {
+//     event.respondWith(
+//       fetch(event.request)
+//         .then(function(response) {
+//           // 克隆响应以进行缓存
+//           const responseClone = response.clone();
+//           caches.open(CACHE_NAME)
+//             .then(function(cache) {
+//               cache.put(event.request, responseClone);
+//             });
+//           return response;
+//         })
+//         .catch(function() {
+//           return caches.match(event.request)
+//             .then(function(response) {
+//               return response || caches.match('/offline.html');
+//             });
+//         })
+//     );
+//     return;
+//   }
+  
+//   // 对于其他资源，使用缓存优先策略
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(function(response) {
+//         return response || fetch(event.request);
+//       })
+//   );
+// });
+
+// // 辅助函数：获取并缓存请求
+// function fetchAndCache(request) {
+//   return fetch(request)
+//     .then(function(response) {
+//       // 检查响应是否有效
+//       if (!response || response.status !== 200) {
+//         return response;
+//       }
+      
+//       // 克隆响应以进行缓存
+//       const responseToCache = response.clone();
+      
+//       caches.open(CACHE_NAME)
+//         .then(function(cache) {
+//           cache.put(request, responseToCache);
+//         });
+      
+//       return response;
+//     })
+//     .catch(function(error) {
+//       console.log('获取资源失败:', error);
+//       throw error;
+//     });
+//   }
+
+const CACHE_NAME = 'mkdocs-cache-v1';
+const CACHEABLE_EXTENSIONS = ['css', 'js', 'html', 'woff2', 'svg', 'png', 'json'];
+
+// 安装阶段：预缓存核心资源
+self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-      .then(function() {
-        console.log('所有资源已成功缓存');
-      })
-      .catch(function(error) {
-        console.log('缓存失败:', error);
-      })
+    caches.open(CACHE_NAME).then(cache => 
+      cache.addAll([
+        './',
+        './search/main.js',
+        './assets/stylesheets/main.css',
+        './assets/javascripts/bundle.min.js'
+      ])
+    )
   );
 });
 
-// 激活阶段
-self.addEventListener('activate', function(event) {
+// 激活阶段：清理旧缓存
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheName !== CACHE_NAME) {
-            console.log('删除旧缓存:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(function() {
-      // 立即接管所有客户端
-      return self.clients.claim();
-    })
+    caches.keys().then(keys => 
+      Promise.all(keys.map(key => 
+        key !== CACHE_NAME && caches.delete(key)
+      ))
+    ).then(() => self.clients.claim())
   );
 });
 
-// fetch事件处理
-self.addEventListener('fetch', function(event) {
+// Fetch处理：动态缓存策略
+self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   
-  // 跳过非GET请求
-  if (event.request.method !== 'GET') return;
-  
-  // 对于sw.js本身，始终从网络获取，但不要缓存
-  if (url.pathname.endsWith('sw.js')) {
-    event.respondWith(fetch(event.request));
+  // 跳过非必要请求
+  if (event.request.method !== 'GET' || 
+      url.pathname.endsWith('sw.js') ||
+      url.hostname !== self.location.hostname) {
     return;
   }
-  
-  // 对于CSS和JS资源，使用缓存优先策略
-  if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+
+  // 处理文档和静态资源
+  if (isCacheable(url)) {
     event.respondWith(
-      caches.match(event.request)
-        .then(function(response) {
-          if (response) {
-            // 返回缓存的同时更新缓存
-            fetchAndCache(event.request);
-            return response;
-          }
-          // 没有缓存，从网络获取并缓存
-          return fetchAndCache(event.request);
-        })
-    );
-    return;
-  }
-  
-  // 对于HTML页面，使用网络优先策略
-  if (event.request.headers.get('Accept').includes('text/html')) {
-    event.respondWith(
-      fetch(event.request)
-        .then(function(response) {
-          // 克隆响应以进行缓存
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME)
-            .then(function(cache) {
-              cache.put(event.request, responseClone);
-            });
-          return response;
-        })
-        .catch(function() {
-          return caches.match(event.request)
-            .then(function(response) {
-              return response || caches.match('/offline.html');
-            });
-        })
-    );
-    return;
-  }
-  
-  // 对于其他资源，使用缓存优先策略
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        return response || fetch(event.request);
+      caches.match(event.request).then(cached => {
+        // 网络优先策略（实时更新文档）
+        return fetch(event.request)
+          .then(networkRes => {
+            // 克隆并缓存新响应
+            cacheResponse(event.request, networkRes.clone());
+            return networkRes;
+          })
+          .catch(() => cached || fallbackResponse());
       })
-  );
+    );
+  }
 });
 
-// 辅助函数：获取并缓存请求
-function fetchAndCache(request) {
-  return fetch(request)
-    .then(function(response) {
-      // 检查响应是否有效
-      if (!response || response.status !== 200) {
-        return response;
-      }
-      
-      // 克隆响应以进行缓存
-      const responseToCache = response.clone();
-      
-      caches.open(CACHE_NAME)
-        .then(function(cache) {
-          cache.put(request, responseToCache);
-        });
-      
-      return response;
-    })
-    .catch(function(error) {
-      console.log('获取资源失败:', error);
-      throw error;
-    });
+// 辅助函数：缓存响应
+function cacheResponse(request, response) {
+  if (response && response.status === 200) {
+    caches.open(CACHE_NAME).then(cache => 
+      cache.put(request, response)
+    );
   }
+}
+
+// 辅助函数：缓存资源判定
+function isCacheable(url) {
+  return CACHEABLE_EXTENSIONS.some(ext => 
+    url.pathname.endsWith(`.${ext}`) ||
+    (ext === 'html' && !url.search)
+  );
+}
+
+// 辅助函数：离线回退
+function fallbackResponse() {
+  return caches.match('./404.html') || 
+    new Response('<h1>离线模式</h1><p>请连接网络后刷新页面</p>', {
+      headers: {'Content-Type': 'text/html'}
+    });
+}
