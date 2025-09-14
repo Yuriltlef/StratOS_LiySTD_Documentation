@@ -14,6 +14,8 @@ theme:
     - navigation.expand
     - toc.integrate
 
+  custom_dir: overrides
+
   palette:
 
     # Toggle light mode
