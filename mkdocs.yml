@@ -16,6 +16,8 @@ theme:
     - content.tabs.link
 
   custom_dir: overrides
+  static_templates:
+    - main.html
 
   palette:
 
