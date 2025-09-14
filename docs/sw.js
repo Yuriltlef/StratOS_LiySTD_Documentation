@@ -2,7 +2,7 @@ const CACHE_NAME = 'theme-cache-v1';
 const urlsToCache = [
   '/',
   '/stylesheets/extra.css',
-  '/js/custom.js'
+  '/js/theme-loader.js'
 ];
 
 self.addEventListener('install', function(event) {
