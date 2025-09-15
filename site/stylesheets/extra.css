@@ -181,6 +181,7 @@ input {
   display: flex;
   align-items: center;
   position: relative;
+  transition: padding 0.1s ease !important;
 }
 
 /* 选中状态 - 更大的方框和更明显的样式 */
@@ -203,12 +204,16 @@ input {
 /* 悬停状态 */
 [data-md-color-scheme="default"] .md-nav__link:hover {
   background-color: rgba(0, 0, 0, 0.07) !important;
-  color: #000000 !important;
+  color: #6984ff !important;
+  padding: 0.3rem 1rem !important;
+  transition: padding 0.1s ease !important;
 }
 
 [data-md-color-scheme="slate"] .md-nav__link:hover {
   background-color: rgba(255, 255, 255, 0.07) !important;
   color: #ffffff !important; /* 深色模式下悬停时也使用白色文字 */
+  padding: 0.3rem 1rem !important;
+  transition: padding 0.1s ease !important;
 }
 
 /* 选中状态的悬停效果 */
