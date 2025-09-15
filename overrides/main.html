@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 
 {% block htmltitle %}
-  <title>内联验证成功</title>
+  <meta name="color-scheme" content="dark light"></meta>
+  <script>
+     (function() {
+    try {
+      // 1. 尝试从 localStorage 读取主题配置
+      const paletteConfig = JSON.parse(localStorage.getItem('/.__palette') || '{}');
+      
+      // 2. 获取当前主题：从配置对象 > color > scheme 层级读取
+      const savedScheme = paletteConfig.color?.scheme || '';
+      
+      // 3. 深色模式判定逻辑：
+      //    a) 配置中存在且值为 'slate'（深色）
+      //    b) 无配置时根据系统偏好判断
+      const isDarkMode = savedScheme === 'slate' || 
+        (!savedScheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      // 4. 应用深色模式
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark-theme');
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    } catch(e) {
+      // 静默处理 JSON 解析等错误
+    }
+  })();
+  </script>
   <style>
 body {
   background-color: black;
