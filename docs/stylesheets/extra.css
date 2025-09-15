@@ -197,27 +197,31 @@ input {
   background-color: rgba(109, 189, 255, 0.221) !important;
   color: #ffffff !important; /* 白色文字确保可见性 */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* 文字阴影增强可读性 */
+  padding: 0.3rem 1rem !important; /* 选中状态更大的内边距 */
 }
 
 /* 悬停状态 */
 [data-md-color-scheme="default"] .md-nav__link:hover {
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: rgba(0, 0, 0, 0.07) !important;
+  color: #000000 !important;
 }
 
 [data-md-color-scheme="slate"] .md-nav__link:hover {
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: rgba(255, 255, 255, 0.07) !important;
   color: #ffffff !important; /* 深色模式下悬停时也使用白色文字 */
 }
 
 /* 选中状态的悬停效果 */
 [data-md-color-scheme="default"] .md-nav__link--active:hover {
-  background-color: rgba(0, 0, 0, 0.18) !important;
+  background-color: rgba(0, 0, 0, 0.225) !important;
+  color: #000000 !important;
   transform: translateY(-1px) scale(1.02); /* 悬停时轻微放大 */
 }
 
 [data-md-color-scheme="slate"] .md-nav__link--active:hover {
   background-color: rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
+  transform: translateY(-1px) scale(1.02);
 }
 
 .md-nav__link--passed {
