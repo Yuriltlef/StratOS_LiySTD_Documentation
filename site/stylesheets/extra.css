@@ -268,3 +268,9 @@ input {
     border-left: 7px solid #0081d6aa !important;
     transition: border-left 0.1s !important;
 }
+
+@media screen and (min-width: 76.25em) {
+    .md-nav--primary .md-nav__title {
+        box-shadow: none !important;
+    }
+  }
