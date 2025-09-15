@@ -147,20 +147,36 @@ input {
   z-index: 9999 !important;
 }
 
-.md-sidebar__scrollwrap {
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
   scrollbar-gutter: stable;
   scrollbar-width: none;
   scroll-behavior: smooth;
   scrollbar-color: #00000000 !important;
-  transition: scrollbar-color 0.1s !important;
+  transition: color 0.1s !important;
 }
 
-.md-sidebar__scrollwrap:hover {
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap:hover {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   transition: scrollbar-color 0.5s !important;
 }
+
+[data-md-color-scheme="default"] .md-sidebar__scrollwrap {
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-color: #00000000 !important;
+  transition: color 0.1s !important;
+}
+
+[data-md-color-scheme="default"] .md-sidebar__scrollwrap:hover {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  transition: scrollbar-color 0.5s !important;
+}
+
 
 @media screen and (min-width: 60em) {
     .md-sidebar--secondary .md-sidebar__scrollwrap {
