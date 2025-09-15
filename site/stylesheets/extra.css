@@ -2,9 +2,9 @@
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
 } */
 
-[data-md-color-scheme="slate"] {
+/* [data-md-color-scheme="slate"] {
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
+} */
 
 [data-md-color-scheme="defualt"] {
   transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
@@ -17,34 +17,34 @@
 @media screen and (min-width: 76.25em){
 [data-md-color-scheme="defualt"] .md-nav--primary .md-nav__title {
     box-shadow: none !important;
-    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+    /* transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important; */
   }
 }
 
-@media screen and (min-width: 76.25em){
-[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+/* @media screen and (min-width: 76.25em){
+[data-md-color-scheme="defualt"] .md-nav--primary .md-nav__title {
     box-shadow: none !important;
     transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
   }
-}
+} */
 
 [data-md-color-scheme="defualt"] .md-nav__title  {
     box-shadow: none !important;
-    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
+    /* transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important; */
+} 
 
 [data-md-color-scheme="slate"] .md-nav__title  {
     box-shadow: none !important;
-    transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
+    /* transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important; */
 }
 
-[data-md-color-scheme="defualt"] .md-typeset * {
+/* [data-md-color-scheme="defualt"] .md-typeset * {
      transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
+} */
 
-[data-md-color-scheme="slate"] .md-typeset * {
+/* [data-md-color-scheme="slate"] .md-typeset * {
      transition: background-color 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.2s ease !important;
-}
+} */
 
 /* 调整内容区域的最大宽度 */
 .md-grid {
