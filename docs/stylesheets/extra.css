@@ -184,7 +184,7 @@ input {
 }
 
 /* 选中状态 - 更大的方框和更明显的样式 */
-.md-nav__link--active {
+[data-md-color-scheme="default"] .md-nav__link--active {
   background-color: rgba(5, 23, 155, 0.204) !important;
   color: var(--md-primary-fg-color) !important;
   font-weight: 700; /* 更粗的字体 */
@@ -200,7 +200,7 @@ input {
 }
 
 /* 悬停状态 */
-.md-nav__link:hover {
+[data-md-color-scheme="default"] .md-nav__link:hover {
   background-color: rgba(0, 0, 0, 0.07);
 }
 
@@ -210,7 +210,7 @@ input {
 }
 
 /* 选中状态的悬停效果 */
-.md-nav__link--active:hover {
+[data-md-color-scheme="default"] .md-nav__link--active:hover {
   background-color: rgba(0, 0, 0, 0.18) !important;
   transform: translateY(-1px) scale(1.02); /* 悬停时轻微放大 */
 }
