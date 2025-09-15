@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 
 {% block htmltitle %}
+  <style>
+  :root {
+  --bg-override: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme {
+  background-color: var(--bg-override);
+  color-scheme: dark;
+}
+body {
+  background-color: black;
+  color: black;
+}
+  </style>
+
   <meta name="color-scheme" content="dark light"></meta>
   <script>
        (function() {
@@ -31,6 +47,7 @@
       
       // 5. 应用深色模式
       if (isDarkMode) {
+        document.documentElement.setAttribute('data-md-color-scheme', 'slate');
         document.documentElement.classList.add('dark-theme');
         document.documentElement.style.colorScheme = 'dark';
       }
@@ -39,12 +56,6 @@
     }
   })();
   </script>
-  <style>
-body {
-  background-color: black;
-  color: black;
-}
-  </style>
 
 {% endblock %}
 
