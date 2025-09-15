@@ -19,63 +19,10 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
-  <!-- <style>
-  :root {
-  --bg-override: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dark-theme {
-  background-color: var(--bg-override);
-  color-scheme: dark;
-}
-body {
-  background-color: black;
-  color: black;
-}
-  </style>
-
-  <meta name="color-scheme" content="dark light"></meta>
-  <script>
-       (function() {
-    try {
-      // 1. 查找当前域名下所有 .__palette 相关键名
-      const themeKeys = Object.keys(localStorage).filter(key => 
-        key.includes('/.__palette') || key.includes(location.hostname)
-      );
       
-      // 2. 优先级策略：先找含 'dark' 的配置，否则取第一个
-      let paletteConfig = null;
-      for (const key of themeKeys) {
-        const config = JSON.parse(localStorage.getItem(key) || '{}');
-        if (config.color?.scheme === 'slate') {
-          paletteConfig = config;
-          break;
-        }
-      }
+        <title>LKGraph - StratOS-LiySTD 文档</title>
       
-      // 3. 未找到特定配置时使用第一项
-      if (!paletteConfig && themeKeys.length) {
-        paletteConfig = JSON.parse(localStorage.getItem(themeKeys[0]) || '{}');
-      }
-      
-      // 4. 构建判定逻辑
-      const isDarkMode = paletteConfig?.color?.scheme === 'slate' || 
-        (!paletteConfig && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      
-      // 5. 应用深色模式
-      if (isDarkMode) {
-        document.documentElement.setAttribute('data-md-color-scheme', 'slate');
-        document.documentElement.classList.add('dark-theme');
-        document.documentElement.style.colorScheme = 'dark';
-      }
-    } catch(e) {
-      console.error('主题加载错误', e);
-    }
-  })();
-  </script> -->
-
-
+    
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
