@@ -19,27 +19,39 @@
     
   <meta name="color-scheme" content="dark light"></meta>
   <script>
-     (function() {
+       (function() {
     try {
-      // 1. 尝试从 localStorage 读取主题配置
-      const paletteConfig = JSON.parse(localStorage.getItem('/.__palette') || '{}');
+      // 1. 查找当前域名下所有 .__palette 相关键名
+      const themeKeys = Object.keys(localStorage).filter(key => 
+        key.includes('/.__palette') || key.includes(location.hostname)
+      );
       
-      // 2. 获取当前主题：从配置对象 > color > scheme 层级读取
-      const savedScheme = paletteConfig.color?.scheme || '';
+      // 2. 优先级策略：先找含 'dark' 的配置，否则取第一个
+      let paletteConfig = null;
+      for (const key of themeKeys) {
+        const config = JSON.parse(localStorage.getItem(key) || '{}');
+        if (config.color?.scheme === 'slate') {
+          paletteConfig = config;
+          break;
+        }
+      }
       
-      // 3. 深色模式判定逻辑：
-      //    a) 配置中存在且值为 'slate'（深色）
-      //    b) 无配置时根据系统偏好判断
-      const isDarkMode = savedScheme === 'slate' || 
-        (!savedScheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // 3. 未找到特定配置时使用第一项
+      if (!paletteConfig && themeKeys.length) {
+        paletteConfig = JSON.parse(localStorage.getItem(themeKeys[0]) || '{}');
+      }
       
-      // 4. 应用深色模式
+      // 4. 构建判定逻辑
+      const isDarkMode = paletteConfig?.color?.scheme === 'slate' || 
+        (!paletteConfig && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      // 5. 应用深色模式
       if (isDarkMode) {
         document.documentElement.classList.add('dark-theme');
         document.documentElement.style.colorScheme = 'dark';
       }
     } catch(e) {
-      // 静默处理 JSON 解析等错误
+      console.error('主题加载错误', e);
     }
   })();
   </script>
